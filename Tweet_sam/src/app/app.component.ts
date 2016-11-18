@@ -10,6 +10,10 @@ export class AppComponent {
 
   constructor(private http: Http) {}
   makecall() {
-
+    let headers = new Headers();
+    headers.append('Content-type', 'application/X-www-form-urlencoded');
+    this.http.post('http://localhost:3000/authorize',{headers:headers}).subscribe((res)=>{
+    console.log(res);
+    })
   }
 }
